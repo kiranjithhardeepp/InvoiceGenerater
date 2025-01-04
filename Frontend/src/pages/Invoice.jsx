@@ -4,17 +4,21 @@ import InvoiceForm from "../components/InvoiceForm";
 
 const Invoice = () => {
   const [formData, setFormData] = useState({
-    gstin: "",
-    pan: "",
     description: "",
     hsnCode: "",
     qty: "",
     unit: "",
     rate: "",
     discount: "",
-    valueOfSupply: "",
-    paymentDetails: "",
+    netValue: "",
+    cgstPercentage: "",
+    cgstAmount: "",
+    sgstPercentage: "",
+    sgstAmount: "",
+    total: "",
   });
+
+  const [invoiceDataList, setInvoiceDataList] = useState([]); // Array to store all rows of invoice data
 
   // Handle form changes
   const handleChange = (e) => {
@@ -23,6 +27,25 @@ const Invoice = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  // Add new row of invoice data to the list
+  const addInvoiceRow = () => {
+    setInvoiceDataList((prevData) => [...prevData, formData]);
+    setFormData({
+      description: "",
+      hsnCode: "",
+      qty: "",
+      unit: "",
+      rate: "",
+      discount: "",
+      netValue: "",
+      cgstPercentage: "",
+      cgstAmount: "",
+      sgstPercentage: "",
+      sgstAmount: "",
+      total: "",
+    }); // Reset form after adding the row
   };
 
   const printPdf = () => {
@@ -38,14 +61,29 @@ const Invoice = () => {
         <div className="flex">
           <button
             type="button"
-            onClick={printPdf}
+            onClick={addInvoiceRow}
             className="ml-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           >
-            Print invoice
+            Add Row to Invoice
           </button>
         </div>
-        {/* Pass formData as a prop to InvoiceTemplate */}
-        <InvoiceTemplate data={formData} />
+
+        {/* Render the invoice template only if there is data */}
+        {invoiceDataList.length > 0 && (
+          <div>
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={printPdf}
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Print Invoice
+              </button>
+            </div>
+            {/* Pass the entire list of invoice data to InvoiceTemplate */}
+            <InvoiceTemplate dataList={invoiceDataList} />
+          </div>
+        )}
       </div>
     </div>
   );

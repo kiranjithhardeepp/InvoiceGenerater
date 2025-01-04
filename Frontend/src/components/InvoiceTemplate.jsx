@@ -1,42 +1,63 @@
 import React from "react";
 
-const InvoiceTemplate = ({ data }) => {
+const InvoiceTemplate = ({ dataList }) => {
   return (
     <div>
       <div className="m-2 border-solid border-2 border-gray-500">
-        <h1 className="text-center font-bold m-1">Tax Invoice</h1>
-        <h1 className="text-right mr-3 font-bold text-blue-600">
-          BION RENEWABLE ENERGY SERVICES
-        </h1>
+        <div className="p-2">
+          <h1 className="font-bold">BION RENEWABLE ENERGY SOLAR SERVICE</h1>
+          <div className="flex justify-between">
+            <p>
+              THADIYAMPADU P.O ,IDUKKI
+              <br />
+              KERALA-685602
+              <br />
+              PH: 9496444207
+              <br />
+              GSTIN/UID: 32BLFPR6377E1ZY
+            </p>
+            <h1 className="font-bold">TAX INVOICE (B2B) – CASH</h1>
+          </div>
+        </div>
+        <div className="p-2 w-full border-t-2 border-gray-500">
+          <div className="flex justify-between">
+            {/* Left Column */}
+            <div className="flex flex-col">
+              <span className="font-semibold">Invoice No.:</span>
+              <span className="font-semibold">Invoice Date: 12222</span>
+              <span className="font-semibold">PO No:</span>
+              <span className="font-semibold">PO Date:</span>
+              <span className="font-semibold">Site: PHC VANNAPPURAM</span>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col text-right">
+              <span className="font-semibold">Tr. Mode: Road</span>
+              <span className="font-semibold">Veh. No.: KL37-A-2764</span>
+              <span className="font-semibold">Supply Date: 04.01.2025</span>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-6">
           <table className="w-full border-t-2 border-b-2 border-gray-500">
             <tr>
-              <td className="border-r-2 text-right border-gray-500">GSTIN:</td>
-              <td className=" border-gray-500">{data.gstin}</td>
-            </tr>
-            <tr className="border-t-2 border-gray-500">
-              <td className="border-r-2 text-right border-gray-500">PAN:</td>
-              <td className=" border-gray-500">{data.pan}</td>
-            </tr>
-            <tr>
-              <td className="w-1/2 align-top border-r-2 border-t-2  border-gray-500">
+              <td className="w-1/2 align-top border-r-2 border-t-2 border-gray-500">
                 <div className="text-sm text-neutral-600 p-2">
-                  <p className="font-bold">Supplier Company INC</p>
-                  <p>Number: 23456789</p>
-                  <p>VAT: 23456789</p>
-                  <p>6622 Abshire Mills</p>
-                  <p>Port Orlofurt, 05820</p>
-                  <p>United States</p>
+                  <p className="font-bold">Billed To:</p>
+                  <p>Name: 123456789</p>
+                  <p>Address: 23456789</p>
+                  <p>PHONE: 7592901502</p>
+                  <p>GSTIN/UID: 123442847</p>
                 </div>
               </td>
-              <td className="w-1/2 align-top text-right border-t-2  border-gray-500 ">
-                <div className="text-sm text-neutral-600 p-2 ">
-                  <p className="font-bold">Customer Company</p>
-                  <p>Number: 123456789</p>
-                  <p>VAT: 23456789</p>
-                  <p>9552 Vandervort Spurs</p>
-                  <p>Paradise, 43325</p>
-                  <p>United States</p>
+              <td className="w-1/2 align-top text-right border-t-2 border-gray-500">
+                <div className="text-sm text-neutral-600 p-2">
+                  <p className="font-bold">Shipped To:</p>
+                  <p>Name: 123456789</p>
+                  <p>Address: 23456789</p>
+                  <p>PHONE: 7592901502</p>
+                  <p>GSTIN/UID: 123442847</p>
                 </div>
               </td>
             </tr>
@@ -44,87 +65,138 @@ const InvoiceTemplate = ({ data }) => {
           <table className="w-full border-collapse border-spacing-0">
             <thead>
               <tr>
+                {/* Table headers */}
                 <td className="border-b-2 border-r-2 pb-3 pl-3 text-center font-bold border-gray-500">
-                  SL
+                  SL.NO
                 </td>
                 <td className="border-r-2 border-b-2 text-center pb-3 pl-2 font-bold border-gray-500">
                   Description of Good
                 </td>
                 <td className="border-r-2 border-b-2 pb-3 pl-2 font-bold border-gray-500">
-                  HSN CODE
+                  HSN/SAC
                 </td>
                 <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
-                  QTY
+                  Qty/ Uom
                 </td>
-                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-boldy border-gray-500">
-                  UNIT
-                </td>
-                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-boldy border-gray-500">
+                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
                   RATE
                 </td>
-                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-boldy border-gray-500">
+                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
                   DISCOUNT
                 </td>
-                <td className="border-b-2 pb-3 pl-2 pr-3 text-center font-boldy border-gray-500">
-                  VALUE OF SUPPLY
+                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
+                  Net Value
+                </td>
+                <td className="border-r-2 border-b-2 text-center border-gray-500">
+                  <table className="w-full h-full">
+                    <tbody>
+                      <tr>
+                        <td
+                          className="ml-4 pl-5 border-r-2 border-b-2 text-center font-bold border-gray-500"
+                          style={{ width: "50%" }}
+                        >
+                          CGST
+                        </td>
+                        <td
+                          className="border-b-2 text-center font-bold border-gray-500"
+                          style={{ width: "50%" }}
+                        >
+                          SGST
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="border-r-2 text-center border-gray-500">
+                          CGST %
+                        </td>
+                        <td className="text-center border-r-2 border-gray-500">
+                          Amount
+                        </td>
+                        <td className="p-3 border-t-2 border-r-2 text-center border-gray-500">
+                          SGST %
+                        </td>
+                        <td className="pl-3 border-t-2 text-center border-gray-500">
+                          Amount
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td className="border-b-2 pb-3 pl-2 pr-3 text-center font-bold border-gray-500">
+                  Total
                 </td>
               </tr>
             </thead>
+
             <tbody>
-              <tr>
-                <td className="border-b py-3 pl-3 border-r-2 border-gray-500">
-                  1.
-                </td>
-                <td className="border-b py-3 pl-2 border-r-2 border-gray-500">
-                  {data.description}
-                </td>
-                <td className="border-b py-3 pl-2 text-right border-r-2 border-gray-500">
-                  {data.hsnCode}
-                </td>
-                <td className="border-b py-3 pl-2 text-center border-r-2 border-gray-500">
-                  {data.qty}
-                </td>
-                <td className="border-b py-3 pl-2 text-center border-r-2 border-gray-500">
-                  {data.unit}
-                </td>
-                <td className="border-b py-3 pl-2 text-center border-r-2 border-gray-500">
-                  {data.rate}
-                </td>
-                <td className="border-b py-3 pl-2 pr-3 text-center border-r-2 border-gray-500">
-                  {data.discount}
-                </td>
-                <td className="border-b py-3 pl-2 pr-3 text-center border-gray-500">
-                  {data.valueOfSupply}
-                </td>
-              </tr>
-              <tr className="border-t-2 border-b-2 border-gray-500">
-                <td className=" border-r-2 text-right border-gray-500">
-                  Total:
-                </td>
-                <td className=" border-gray-500 text-right">
-                  {data.valueOfSupply}
-                </td>
-              </tr>
-              <tr className="border-b-2 border-gray-500">
-                <td className=" border-gray-500">TOTAL AMOUNT</td>
-              </tr>
+              {dataList.map((data, index) => (
+                <tr key={index}>
+                  <td className="border-b-2 border-r-2 pb-3 pl-3 text-center border-gray-500">
+                    {index + 1}
+                  </td>
+                  <td className="border-r-2 border-b-2 text-center pb-3 pl-2 border-gray-500">
+                    {data.description}
+                  </td>
+                  <td className="border-r-2 border-b-2 pb-3 pl-2 border-gray-500">
+                    {data.hsnCode}
+                  </td>
+                  <td className="border-r-2 border-b-2 pb-3 pl-2 text-center border-gray-500">
+                    {data.unit}
+                  </td>
+                  <td className="border-r-2 border-b-2 pb-3 pl-2 text-center border-gray-500">
+                    {data.rate}
+                  </td>
+                  <td className="border-r-2 border-b-2 pb-3 pl-2 text-center border-gray-500">
+                    {data.discount}
+                  </td>
+                  <td className="border-r-2 border-b-2 pb-3 pl-2 text-center border-gray-500">
+                    {data.netValue}
+                  </td>
+                  <td className="border-r-2 border-b-2 text-center border-gray-500">
+                    <table className="w-full h-full border-collapse">
+                      <tbody>
+                        <tr>
+                          <td className="text-center border-r-2 border-gray-500">
+                            {data.cgstPercentage}
+                          </td>
+                          <td className="text-center border-gray-500">
+                            {data.cgstAmount}
+                          </td>
+                          <td className="text-center border-r-2 border-gray-500">
+                            {data.sgstPercentage}
+                          </td>
+                          <td className="text-center border-gray-500">
+                            {data.sgstAmount}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td className="border-b-2 pb-3 pl-2 text-center border-gray-500">
+                    {data.total}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-
-        <div className="flex">
-          <div className="p-1">
-            Certified that the particulars given above are true and correct.
+        <div>
+          <div className="p-2 flex justify-between">
+            <div>
+              <h1 className="font-bold">
+                Bank: SBI Idukki A/c No. 67359957055, ISFC – SBIN0070027
+              </h1>
+              <p>
+                Certified that the particulars given above are true and correct.
+              </p>
+            </div>
+            <div>
+              <p>For BION RENEWABLE ENERGY SOLAR SERVICE</p>
+            </div>
           </div>
-          <div className="ml-auto p-1 font-bold">FOR KAKKATU BULDING</div>
-        </div>
-
-        <div className="flex">
-          <div className="text-sm text-neutral-700 mt-1 p-1">
-            <p className="text-main font-bold">PAYMENT DETAILS</p>
-            <p>{data.paymentDetails}</p>
+          <div className="text-right p-2">
+            <p></p>
+            Authorized Signatory
           </div>
-          <div className="ml-auto p-1">Authorized Signature</div>
         </div>
       </div>
     </div>
