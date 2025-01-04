@@ -7,6 +7,46 @@ const InvoiceForm = ({ formData, handleChange }) => {
       <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Description of Good */}
         <div>
+          <label className="block text-sm font-medium">Shipping to Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="mt-2 p-3 w-full border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800 text-white"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">address:</label>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className="mt-2 p-3 w-full border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800 text-white"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">phone:</label>
+          <input
+            type="number"
+            name="gstnId"
+            value={formData.gstnId}
+            onChange={handleChange}
+            className="mt-2 p-3 w-full border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800 text-white"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">GST Number:</label>
+          <input
+            type="text"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="mt-2 p-3 w-full border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-800 text-white"
+          />
+        </div>
+        <div>
           <label className="block text-sm font-medium">
             Description of Good:
           </label>

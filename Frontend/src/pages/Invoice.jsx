@@ -4,6 +4,10 @@ import InvoiceForm from "../components/InvoiceForm";
 
 const Invoice = () => {
   const [formData, setFormData] = useState({
+    name: "",
+    address: "",
+    phone: "",
+    gstnId: "",
     description: "",
     hsnCode: "",
     qty: "",
@@ -33,6 +37,10 @@ const Invoice = () => {
   const addInvoiceRow = () => {
     setInvoiceDataList((prevData) => [...prevData, formData]);
     setFormData({
+      name: "",
+      address: "",
+      phone: "",
+      gstnId: "",
       description: "",
       hsnCode: "",
       qty: "",
@@ -81,7 +89,7 @@ const Invoice = () => {
               </button>
             </div>
             {/* Pass the entire list of invoice data to InvoiceTemplate */}
-            <InvoiceTemplate dataList={invoiceDataList} />
+            <InvoiceTemplate dataList={invoiceDataList} formData={formData} />
           </div>
         )}
       </div>

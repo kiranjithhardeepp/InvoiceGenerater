@@ -1,6 +1,7 @@
 import React from "react";
 
-const InvoiceTemplate = ({ dataList }) => {
+const InvoiceTemplate = ({ dataList, formData }) => {
+  console.log(dataList);
   return (
     <div>
       <div className="m-2 border-solid border-2 border-gray-500">
@@ -45,19 +46,19 @@ const InvoiceTemplate = ({ dataList }) => {
               <td className="w-1/2 align-top border-r-2 border-t-2 border-gray-500">
                 <div className="text-sm text-neutral-600 p-2">
                   <p className="font-bold">Billed To:</p>
-                  <p>Name: 123456789</p>
-                  <p>Address: 23456789</p>
-                  <p>PHONE: 7592901502</p>
-                  <p>GSTIN/UID: 123442847</p>
+                  <p>Name: {formData.name}</p>
+                  <p>Address: {formData.address}</p>
+                  <p>PHONE: {formData.phone}</p>
+                  <p>GSTIN/UID: {formData.gstnId}</p>
                 </div>
               </td>
               <td className="w-1/2 align-top text-right border-t-2 border-gray-500">
                 <div className="text-sm text-neutral-600 p-2">
                   <p className="font-bold">Shipped To:</p>
-                  <p>Name: 123456789</p>
-                  <p>Address: 23456789</p>
-                  <p>PHONE: 7592901502</p>
-                  <p>GSTIN/UID: 123442847</p>
+                  <p>Name: {formData.name}</p>
+                  <p>Address: {formData.address}</p>
+                  <p>PHONE: {formData.phone}</p>
+                  <p>GSTIN/UID: {formData.gstnId}</p>
                 </div>
               </td>
             </tr>
@@ -72,7 +73,7 @@ const InvoiceTemplate = ({ dataList }) => {
                 <td className="border-r-2 border-b-2 text-center pb-3 pl-2 font-bold border-gray-500">
                   Description of Good
                 </td>
-                <td className="border-r-2 border-b-2 pb-3 pl-2 font-bold border-gray-500">
+                <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
                   HSN/SAC
                 </td>
                 <td className="border-r-2 border-b-2 pb-3 pl-2 text-center font-bold border-gray-500">
@@ -88,33 +89,22 @@ const InvoiceTemplate = ({ dataList }) => {
                   Net Value
                 </td>
                 <td className="border-r-2 border-b-2 text-center border-gray-500">
-                  <table className="w-full h-full">
+                  <table className="w-full h-full border-gray-500">
                     <tbody>
-                      <tr>
-                        <td
-                          className="ml-4 pl-5 border-r-2 border-b-2 text-center font-bold border-gray-500"
-                          style={{ width: "50%" }}
-                        >
-                          CGST
-                        </td>
-                        <td
-                          className="border-b-2 text-center font-bold border-gray-500"
-                          style={{ width: "50%" }}
-                        >
-                          SGST
-                        </td>
+                      <tr className="w-full border-b-2 font-bold border-gray-500 ">
+                        CGST/SGST
                       </tr>
                       <tr>
-                        <td className="border-r-2 text-center border-gray-500">
+                        <td className="px-4 py-2 border-r-2 text-center border-gray-500 w-1/4">
                           CGST %
                         </td>
-                        <td className="text-center border-r-2 border-gray-500">
+                        <td className=" px-4 py-2 text-center border-r-2 border-gray-500 w-1/4">
                           Amount
                         </td>
-                        <td className="p-3 border-t-2 border-r-2 text-center border-gray-500">
+                        <td className="px-4 py-2  border-r-2 text-center border-gray-500 w-1/4">
                           SGST %
                         </td>
-                        <td className="pl-3 border-t-2 text-center border-gray-500">
+                        <td className="px-4 py-2  text-center border-gray-500 w-1/4">
                           Amount
                         </td>
                       </tr>
@@ -152,19 +142,19 @@ const InvoiceTemplate = ({ dataList }) => {
                     {data.netValue}
                   </td>
                   <td className="border-r-2 border-b-2 text-center border-gray-500">
-                    <table className="w-full h-full border-collapse">
+                    <table className="w-full border-collapse">
                       <tbody>
                         <tr>
-                          <td className="text-center border-r-2 border-gray-500">
+                          <td className="border-r-2 border-gray-500 px-4 py-2 w-1/4">
                             {data.cgstPercentage}
                           </td>
-                          <td className="text-center border-gray-500">
+                          <td className="border-r-2 border-gray-500 px-4 py-2 w-1/4">
                             {data.cgstAmount}
                           </td>
-                          <td className="text-center border-r-2 border-gray-500">
+                          <td className="border-r-2 border-gray-500 px-4 py-2 w-1/4">
                             {data.sgstPercentage}
                           </td>
-                          <td className="text-center border-gray-500">
+                          <td className=" border-gray-500 px-4 py-2 w-1/4">
                             {data.sgstAmount}
                           </td>
                         </tr>
