@@ -1,9 +1,9 @@
 {
   "name": "expensetracker",
   "version": "1.0.0",
-  "main": "Backend/server.js",
+  "main": "BionBackend/server.js",
   "scripts": {
-    "dev": "nodemon Backend/server.js",
+    "dev": "nodemon BionBackend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
